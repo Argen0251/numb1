@@ -1,3 +1,5 @@
+package lesson1_2;
+
 public class lesson2_2 {
     public static void main(String[] args) {
         int temperature =5;

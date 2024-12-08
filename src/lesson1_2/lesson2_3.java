@@ -1,3 +1,5 @@
+package lesson1_2;
+
 public class lesson2_3 {
     public static void main(String[] args) {
         System.out.println("Завтрак");

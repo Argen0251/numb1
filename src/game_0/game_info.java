@@ -1,6 +1,6 @@
 package game_0;
 
-public class start_the_games {
+public class game_info {
     public static void main(String[] args) {
     Boss boss = new Boss();
     boss.setDamage(50);

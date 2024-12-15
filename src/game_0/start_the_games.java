@@ -16,10 +16,10 @@ public class start_the_games {
         }
         }
     public static Hero[] createHeroes() {
-        Hero mage = new Hero(280,15, "magic");
-        Hero kinetic = new Hero(240,10, "kinetik");
-        Hero fighter = new Hero(300,20);
-        Hero[] heroes = new Hero[]{mage, kinetic, fighter };
+        Hero past = new Hero(280,15, "magic");
+        Hero present = new Hero(240,10, "kinetik");
+        Hero future = new Hero(300,20);
+        Hero[] heroes = new Hero[]{past, present, future };
         return heroes;
     }
 }

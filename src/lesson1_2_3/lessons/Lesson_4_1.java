@@ -1,3 +1,5 @@
+package lesson1_2_3.lessons;
+
 import java.util.Random;
 
 public class Lesson_4_1 {

@@ -1,4 +1,4 @@
-import java.util.Arrays;
+package lesson1_2_3.lessons;
 
 public class home_work3 {
     public static void main(String[] args) {

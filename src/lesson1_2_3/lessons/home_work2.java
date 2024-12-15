@@ -1,4 +1,4 @@
-package lesson1_2;
+package lesson1_2_3.lessons;
 
 import java.util.Random;
 public class home_work2 {

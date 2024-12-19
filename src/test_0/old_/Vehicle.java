@@ -1,4 +1,4 @@
-package test_0;
+package test_0.old_;
 
 public class Vehicle {
     int passengers; // количество пассажиров

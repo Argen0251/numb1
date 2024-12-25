@@ -9,7 +9,6 @@ public abstract class Hero implements HavingSuperAbility {
         this.damage = damage;
         this.superAbility = superAbility;
     }
-
     public String getSuperAbility() {
         return superAbility;
     }

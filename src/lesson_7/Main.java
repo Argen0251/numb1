@@ -7,6 +7,7 @@ public class Main {
         new medic(250, 0, "Healing", 20),
         new warrior(240, 30, "Critical Damage")
     };
+
         for (int i = 0; i < heroes.length; i++) {
             heroes[i].applySuperAbility();
 

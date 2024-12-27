@@ -17,8 +17,10 @@ public class RPG_Game {
         Berserk berserk = new Berserk("Vatar", 260, 15);
         Medic doc = new Medic("Old", 250, 5, 15);
         Medic assistant = new Medic("Yan", 300, 5, 5);
+        TrickyBastard Loki = new TrickyBastard("Loki", 250, 10);
+        Ludaman ludo = new Ludaman("ludo",300, 0);
+        Hero[] heroes = {magic, doc, warrior2, warrior1, berserk, assistant, Loki, ludo};
 
-        Hero[] heroes = {magic, doc, warrior2, warrior1, berserk, assistant};
         printStatistics(boss, heroes);
 
         while (!isGameOver(boss, heroes)) {
@@ -48,6 +50,8 @@ public class RPG_Game {
         for (Hero hero : heroes) {
             if (hero.getHealth() > 0 && boss.getHealth() > 0
                     && boss.getDefence() != hero.getAbility()) {
+                if (hero instanceof TrickyBastard && ((TrickyBastard) hero).invisible){
+                    continue;}
 
                 hero.attack(boss);
                 if (!(hero instanceof Magic)) {

@@ -27,6 +27,8 @@ public class Boss extends GameEntity {
                     int blocked = (RPG_Game.random.nextInt(2) + 1) * 5; // 5, 10
                     ((Berserk) hero).setBlockedDamage(blocked);
                     hero.setHealth(hero.getHealth() - (this.getDamage() - blocked));
+                } else if (hero instanceof TrickyBastard && !((TrickyBastard) hero).invisibleUse) {
+                    continue;
                 } else {
                     hero.setHealth(hero.getHealth() - this.getDamage());
                 }

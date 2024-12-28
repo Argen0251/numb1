@@ -12,7 +12,7 @@ public class TrickyBastard extends Hero {
     @Override
     public void applySuperPower(Boss boss, Hero[] heroes) {
         //TODO superpower
-        invisible = RPG_Game.random.nextBoolean(); // Случайное решение "притвориться мертвым"
+        invisible = RPG_Game.random.nextBoolean();
         if (invisible) {
             invisible = false;
             invisibleUsing = false;

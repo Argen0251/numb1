@@ -14,21 +14,20 @@ public class Ludaman extends Hero {
 
     @Override
     public void applySuperPower(Boss boss, Hero[] heroes) {
+
         int numb1 =RPG_Game.random.nextInt(2)+98;
         int numb2 =RPG_Game.random.nextInt(2)+98;
         if (numb1==numb2) {
-            summLudo=numb1+numb2;
+            summLudo=numb1+numb2;if (boss.getHealth()>0){
             boss.setHealth(boss.getHealth()-summLudo);
-            System.out.println("Ludaman attacked boss in "+summLudo);
+            System.out.println("Ludaman attacked boss in "+summLudo);}
         }
         else{
             summLudo = (numb1+numb2);
             int rand=RPG_Game.random.nextInt(2);
+            if (heroes[rand].getHealth()>0){
             heroes[rand].setHealth(heroes[rand].getHealth()-summLudo);
-            System.out.println("Ludaman attacked hero in " + heroes[rand].getName() +" " + (summLudo));
+            System.out.println("Ludaman attacked hero in " + heroes[rand].getName() +" " + (summLudo));}
         }
         }
     }
-
-
-

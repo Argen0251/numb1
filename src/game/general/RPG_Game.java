@@ -63,11 +63,7 @@ public class RPG_Game {
             }
         }
 
-        for (Hero hero : heroes) {
-            if (hero instanceof TrickyBastard) {
-                ((TrickyBastard) hero).invisible = false;
-            }
-        }
+
         for (Hero hero : heroes) {
             if (hero instanceof Magic) {
                 ((Magic) hero).resetBoostedDamage(heroes);

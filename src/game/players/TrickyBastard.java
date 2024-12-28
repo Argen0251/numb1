@@ -3,7 +3,7 @@ package game.players;
 import game.general.RPG_Game;
 
 public class TrickyBastard extends Hero {
-    public boolean invisibleUse;
+    public boolean invisibleUsing;
     public boolean invisible;
     public TrickyBastard(String name, int health, int damage) {
         super(name, health, damage, SuperAbility.TRICK);
@@ -12,16 +12,14 @@ public class TrickyBastard extends Hero {
     @Override
     public void applySuperPower(Boss boss, Hero[] heroes) {
         //TODO superpower
-
-        invisible= RPG_Game.random.nextBoolean();
-        if(invisible && !invisibleUse) {
-            System.out.println("Loki invisible in this raund ");
-            invisibleUse=false;
-
+        invisible = RPG_Game.random.nextBoolean(); // Случайное решение "притвориться мертвым"
+        if (invisible) {
+            invisible = false;
+            invisibleUsing = false;
+        } else if (!invisibleUsing && RPG_Game.random.nextBoolean()) {
+            invisible = true;
+            invisibleUsing = true;
+            System.out.println(getName() + " Loki simulates dead in next round! ");
         }
-        else if(invisibleUse) {
-            invisibleUse=false;
-        }
-
     }
 }

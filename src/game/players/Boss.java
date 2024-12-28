@@ -22,13 +22,12 @@ public class Boss extends GameEntity {
     public void attack(Hero[] heroes) {
         for (Hero hero : heroes) {
             if (hero.getHealth() > 0) {
-                if (hero instanceof Berserk &&
-                        this.defence != SuperAbility.BLOCK_DAMAGE_AND_REVERT) {
-                    int blocked = (RPG_Game.random.nextInt(2) + 1) * 5; // 5, 10
+                if (hero instanceof TrickyBastard && ((TrickyBastard) hero).invisible) {
+                    continue;
+                } else if (hero instanceof Berserk && this.defence != SuperAbility.BLOCK_DAMAGE_AND_REVERT) {
+                    int blocked = (RPG_Game.random.nextInt(2) + 1) * 5;
                     ((Berserk) hero).setBlockedDamage(blocked);
                     hero.setHealth(hero.getHealth() - (this.getDamage() - blocked));
-                } else if (hero instanceof TrickyBastard && !((TrickyBastard) hero).invisibleUse) {
-                    continue;
                 } else {
                     hero.setHealth(hero.getHealth() - this.getDamage());
                 }

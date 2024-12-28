@@ -6,5 +6,7 @@ public enum SuperAbility {
     BLOCK_DAMAGE_AND_REVERT,
     HEAL,
     TRICK,
-    Ludom
+    Ludom,
+    STRENGTH_OF_DEKU,
+    KAMIKADZE
 }

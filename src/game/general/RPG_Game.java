@@ -10,7 +10,7 @@ public class RPG_Game {
     private static int roundNumber;
 
     public static void startGame() {
-        Boss boss = new Boss("Dragon", 1000, 50);
+        Boss boss = new Boss("Dragon", 1250, 50);
         Warrior warrior1 = new Warrior("Alex", 280, 10);
         Warrior warrior2 = new Warrior("Arthur", 270, 15);
         Magic magic = new Magic("Harry", 290, 10);
@@ -19,7 +19,10 @@ public class RPG_Game {
         Medic assistant = new Medic("Yan", 300, 5, 5);
         TrickyBastard Loki = new TrickyBastard("Loki", 250, 10);
         Ludaman ludo = new Ludaman("ludo",300, 0);
-        Hero[] heroes = {magic, doc, warrior2, warrior1, berserk, assistant, Loki, ludo};
+        Deku deku = new Deku("Deku", 300, 20);
+        Kamikadze japon= new Kamikadze("Japon", 200, 0);
+
+        Hero[] heroes = {magic, doc, warrior2, warrior1, berserk, assistant, Loki, ludo, deku, japon};
 
         printStatistics(boss, heroes);
 
@@ -41,18 +44,18 @@ public class RPG_Game {
         boss.chooseDefence();
         boss.attack(heroes);
         for (Hero hero : heroes) {
-            if (hero instanceof Magic && roundNumber < 4&& boss.getDefence() != hero.getAbility()) {
+            if (hero instanceof Magic && roundNumber < 4 && boss.getDefence() != hero.getAbility()) {
                 hero.setDamage(hero.getFirst_Damage());
                 hero.applySuperPower(boss, heroes);
                 break;
             }
         }
-        for (Hero hero : heroes) {
-            if (hero.getHealth() > 0 && boss.getHealth() > 0
-                    && boss.getDefence() != hero.getAbility()) {
-                if (hero instanceof TrickyBastard && ((TrickyBastard) hero).invisible){
-                    continue;}
 
+        for (Hero hero : heroes) {
+            if (hero.getHealth() > 0 && boss.getHealth() > 0 && boss.getDefence() != hero.getAbility()) {
+                if (hero instanceof TrickyBastard && ((TrickyBastard) hero).invisible) {
+                    continue;
+                }
                 hero.attack(boss);
                 if (!(hero instanceof Magic)) {
                     hero.applySuperPower(boss, heroes);
@@ -60,6 +63,16 @@ public class RPG_Game {
             }
         }
 
+        for (Hero hero : heroes) {
+            if (hero instanceof TrickyBastard) {
+                ((TrickyBastard) hero).invisible = false;
+            }
+        }
+        for (Hero hero : heroes) {
+            if (hero instanceof Magic) {
+                ((Magic) hero).resetBoostedDamage(heroes);
+            }
+        }
         printStatistics(boss, heroes);
     }
 
